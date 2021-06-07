@@ -1,6 +1,7 @@
 package loan
 
 import (
+	"github.com/shopspring/decimal"
 	. "github.com/smartystreets/goconvey/convey"
 	"myloanapp/loanapp"
 	"testing"
@@ -104,8 +105,10 @@ func TestBalance(t *testing.T) {
 			})
 			Convey("When queried date is after loan start date", func() {
 				bal, err := lh.GetBalance("2022-05-17")
+				decimalBal, _ := decimal.NewFromString(bal)
+				expectedBal, _ := decimal.NewFromString("166022")
 				So(err, ShouldBeNil)
-				So(bal, ShouldEqual, "160000")
+				So(decimalBal.Round(0), ShouldEqual, expectedBal.Round(0))
 			})
 		})
 }
