@@ -29,7 +29,7 @@ There 3 APIs for this service, Following are the details to work with them :
     
     json request body: {
        "amount" : "80000",
-       "date" : "2020-06-05T08:28:06.801064-04:00"
+       "date" : "2020-06-05T08:28:06.801064-04:00" //Date needs to be in this format
     }
    
     response (if success): [{"amount":"80000","date":"2020-06-05T08:28:06.801064-04:00"}]
